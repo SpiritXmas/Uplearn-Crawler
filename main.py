@@ -29,7 +29,7 @@ driver.get("https://web.uplearn.co.uk/login")
 
 input("Press enter once logged in...")
 
-xp_wanted = ceil(int(input("\nDesired xp gain: "))/16)
+xp_wanted = ceil(int(input("Desired xp gain: "))/16)
 
 delay = 0.2
 
