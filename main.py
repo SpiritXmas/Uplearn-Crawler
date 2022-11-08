@@ -24,13 +24,15 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 
 driver = webdriver.Chrome(options=chrome_options)
 
-xp_wanted = ceil(int(input("Desired xp gain: "))/16)
 
 driver.get("https://web.uplearn.co.uk/login")
 
 input("Press enter once logged in...")
 
-delay = 0.5
+xp_wanted = ceil(int(input("\nDesired xp gain: "))/16)
+
+delay = 0.2
+
 
 #main class
 
@@ -113,8 +115,6 @@ class Search:
 for iteration in range(xp_wanted):
     driver.get("https://app.uplearn.co.uk/learn/maths-1/symbols-and-meaning/subsection-quiz")
 
-    sleep(1)
-
     # initialise
 
     Search.Button("Begin?", True)
@@ -127,18 +127,12 @@ for iteration in range(xp_wanted):
     Search.CheckBox("option4", True)
     Search.NextPage()
 
-    sleep(delay)
-
     Search.CheckBox("option2", True)
     Search.NextPage()
-
-    sleep(delay)
 
     Search.CheckBox("option3", True, "optionsRadios[0][]")
     Search.CheckBox("option1", True, "optionsRadios[1][]")
     Search.NextPage()
-
-    sleep(delay)
 
     Search.CheckBox("option1", True)
     Search.CheckBox("option2", True)
@@ -146,13 +140,9 @@ for iteration in range(xp_wanted):
     Search.CheckBox("option4", True)
     Search.NextPage()
 
-    sleep(delay)
-
     Search.CheckBox("option2", True)
     Search.CheckBox("option4", True)
     Search.NextPage()
-
-    sleep(delay)
 
     Search.CheckBox("option1", True)
     Search.CheckBox("option2", True)
@@ -162,8 +152,6 @@ for iteration in range(xp_wanted):
     Search.CheckBox("option8", True)
     Search.NextPage()
 
-    sleep(delay)
-
     Search.DropDown("optionsDropdown[0][]", "≡")
     Search.DropDown("optionsDropdown[1][]", "≡")
     Search.DropDown("optionsDropdown[2][]", "=")
@@ -172,11 +160,11 @@ for iteration in range(xp_wanted):
     Search.CheckBox("option3", True)
     Search.NextPage()
 
-    sleep(delay)
-
     Search.CheckBox("option1", True)
     Search.NextPage()
 
-    sleep(2)
+    sleep(1)
 
-driver.close()
+driver.quit()
+
+print("Finished xp gain.")
