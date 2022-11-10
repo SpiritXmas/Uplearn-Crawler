@@ -36,6 +36,13 @@ delay = 0.2
 
 #main class
 
+def ProtectedCall(function):
+    try:
+        function()
+    except: pass
+
+    return True
+
 class Search:
     def Button(text, click=False):
         btn, timeout = False, 0
@@ -106,10 +113,19 @@ class Search:
 
         select.select_by_value(value)
 
-    def NextPage():
+    def IntermediateNextPage():
         Search.Button("I know it", True)
         Search.Button("Submit", True)
         Search.Button("Continue ->", True)
+
+    def NextPage():
+        timeout = 0
+        while not ProtectedCall(Search.IntermediateNextPage):
+            timeout += 1
+            sleep(0.1)
+
+            if timeout >= 100:
+                return Exception("Timeout within function 'NextPage' with null arguments.")
 
 
 for iteration in range(xp_wanted):
