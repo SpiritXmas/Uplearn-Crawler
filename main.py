@@ -82,7 +82,3 @@ for index, value in enumerate(Child):
     continue
 
   Post(Endpoints["validateQuiz"], value)
-
-#result = Post(Endpoints["validateQuiz"], data="ended=1&user=1&module=30&section=464")
-
-#print(result.text)
