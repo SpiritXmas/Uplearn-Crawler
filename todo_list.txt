@@ -1,0 +1,3 @@
+figure out why symbol and meanings quiz give 15 xp instead of full 16 / maybe a mistake somewhere?
+map out tests for arithmetic
+figure out how to include math tests etc
