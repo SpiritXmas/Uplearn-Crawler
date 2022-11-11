@@ -1,6 +1,7 @@
 import requests
-from json import loads
 from re import sub
+from json import loads
+from math import ceil
 
 Endpoints = {
   "validateQuestion":"https://app.uplearn.co.uk/validateQuizNew.php",
@@ -44,7 +45,7 @@ with SESSION as http:
     quit("Error with GET request to grab php session id.")
 
 
-print("")
+print("Logged in successfully.")
 
 
 def Post(url, data):
@@ -66,19 +67,38 @@ AnswerPaths = {
                  }
 }
 
-Parent, Child = AnswerPaths[input("Enter a category: ")], ""
-if Parent:
-  Child = Parent[input("Enter a quiz: ")]
+mode = int(input("\n\nEnter (1) for xp farm or (2) to finish a quiz: "))
 
-  if not Child:
+if mode == 1:
+    xp_path = AnswerPaths["FoundationsI"]["SymbolsAndMeaning"]
+    length = len(xp_path)
+
+    xp_gain = ceil(int(input("Enter xp gain: "))/16)
+
+    for i in range(xp_gain):
+        for index, value in enumerate(xp_path):
+            if index != length:
+                Post(Endpoints["validateQuestion"], value)
+                continue
+
+            Post(Endpoints["validateQuiz"], value)
+
+    print("XP Farmed.")
     quit()
-else:
-  quit()
+elif mode == 2:
+    Parent, Child = AnswerPaths[input("Enter a category: ")], ""
+    if Parent:
+        Child = Parent[input("Enter a quiz: ")]
 
-Length = len(Child)-1
-for index, value in enumerate(Child):
-  if index != Length:
-    Post(Endpoints["validateQuestion"], value)
-    continue
+        if not Child:
+            quit()
 
-  Post(Endpoints["validateQuiz"], value)
+        Length = len(Child)-1
+        for index, value in enumerate(Child):
+            if index != Length:
+                Post(Endpoints["validateQuestion"], value)
+                continue
+
+            Post(Endpoints["validateQuiz"], value)
+    
+    print("Quiz finished.")
