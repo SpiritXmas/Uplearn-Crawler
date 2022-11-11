@@ -45,7 +45,7 @@ with SESSION as http:
     quit("Error with GET request to grab php session id.")
 
 
-print("Logged in successfully.")
+print("\n\n------------------------------Logged in successfully.")
 
 
 def Post(url, data):
@@ -71,7 +71,7 @@ mode = int(input("\n\nEnter (1) for xp farm or (2) to finish a quiz: "))
 
 if mode == 1:
     xp_path = AnswerPaths["FoundationsI"]["SymbolsAndMeaning"]
-    length = len(xp_path)
+    length = len(xp_path)-1
 
     xp_gain = ceil(int(input("Enter xp gain: "))/16)
 
