@@ -13,7 +13,7 @@ OK = requests.codes.ok
 SESSION = requests.Session()
 
 AUTH_TOKEN = ""
-PHP_SES_ID = "" # bruh idk, its accepting my static one and the one I grab normally doesn't work
+PHP_SES_ID = "" # it accepts static one from your browser but not a dynamic one you grab on runtime?
 USER_ID = ""
 
 email = input("Enter email: ")
