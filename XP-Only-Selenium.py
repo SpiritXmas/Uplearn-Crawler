@@ -116,6 +116,9 @@ class Search:
     def IntermediateNextPage():
         Search.Button("I know it", True)
         Search.Button("Submit", True)
+
+        sleep(0.1)
+
         Search.Button("Continue ->", True)
 
     def NextPage():
