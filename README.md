@@ -1,7 +1,38 @@
-# Uplearn-XP-Farm
 
-Hey I've made this for personal use so it isn't really designed for anything else except what I needed specifically. In this case it was pure maths, you can however configure this to complete any course whatsoever using the Search class provided.
+# Uplearn Crawler
 
-The selenium version is completely functional, whereas the terminal only version that only uses POST requests doesn't work at the moment. The issue is due to the PHP SES ID cookie which I can't seem to grab properly. You can go on your browser and grab the PHP SES ID and hard code it for the mean time if you want to use that or figure out how to grab the correct PHP SES ID.
+Uplearn Crawler is an automated program for https://uplearn.co.uk/ that's goal is to get your account both experience and time spent on the website without any user input in a short span of time.
+## Features
 
-Other than that this bot abuses the fact that uplearn doesn't randomize any of their answers or questions for quizes and allow you to retake quizes and still reward the same amount of XP. For any future devs that would like to further this project, I suggest randomizing the time spent on questions variable as well as potentially adding some sort of learning mechanism so it can auto gather all the correct answers over time and create a map for future users.
+- Gain experience
+- Spoof total time spent on website
+- Instant watch videos
+- Logging to a discord webhook
+
+
+## Installation
+
+Install and use the Uplearn Crawler via [python](https://www.python.org/), tested on version 3.9.3 but should support most versions  
+
+```
+cd Uplearn-Crawler
+pip install -r requirements.txt
+``` 
+  
+
+## Usage
+#### Automated login isn't setup currently
+
+### Settings Explanation
+```
+    Email     - Your Uplearn account's email
+    Password  - Your Uplearn account's password
+    DiscordLogging - true/false if you want to log activity to a webhook
+    Webhook        - The webhook link here, if DiscordLogging is set to true
+    SkipWatchedVideos - The program will automatically skip watching videos that have been previously watched
+```
+  
+After setting up the settings, run main.py, login to your account and select a course you want to complete. After you've reached the desired course press enter and let the program do the rest of the work for you.
+## Authors
+
+- [@SpiritXmas](https://www.github.com/SpiritXmas)
